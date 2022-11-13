@@ -10,7 +10,7 @@ export function DetailUser() {
   const { loaderData: { user, repos } } = router.useMatch('/root/:username')
 
   return (
-    <div className="p-4">
+    <div className="p-4 max-w-screen-md w-full">
       <div className="bg-slate-700 text-zinc-100 p-4 rounded-lg">
         <div className="flex gap-4 items-center">
           <img
@@ -56,7 +56,7 @@ export function DetailUser() {
         </div>
 
         <div className="mt-4">
-          <h1 className="text-lg">Repos:</h1>
+          <h1 className="text-lg mb-1">Repos:</h1>
 
           <ReposTable repos={repos} />
         </div>

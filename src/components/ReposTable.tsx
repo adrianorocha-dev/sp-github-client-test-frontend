@@ -40,7 +40,7 @@ export function ReposTable({ repos }: ReposTableProps) {
   })
 
   return (
-      <table className="max-w-full table-auto border-collapse border border-slate-500 rounded">
+      <table className="w-full table-auto border-collapse border border-slate-500 rounded">
         <thead>
           {table.getHeaderGroups().map(headerGroup => (
             <tr key={headerGroup.id}>

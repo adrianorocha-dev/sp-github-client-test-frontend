@@ -8,7 +8,7 @@ export function ListUsers() {
   const { loaderData: { users }, Link } = router.useMatch('/root/')
 
   return (
-    <div className="p-4">
+    <div className="p-4 max-w-screen-md w-full">
       <h1 className="text-xl font-bold text-zinc-200">
         List all GitHub users:
       </h1>

@@ -17,7 +17,7 @@ export function Layout() {
         </Link>
       </header>
 
-      <div className="pt-20">
+      <div className="pt-20 flex justify-center">
         <Outlet />
       </div>
     </div>
