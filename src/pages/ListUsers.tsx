@@ -9,12 +9,12 @@ export function ListUsers() {
 
   return (
     <div className="p-4">
-      <h1 className="text-xl font-bold text-zinc-700">
+      <h1 className="text-xl font-bold text-zinc-200">
         List all GitHub users:
       </h1>
 
       <div className="mt-4 flex flex-col gap-3">
-        {users.map(user => (
+        {users?.map(user => (
           <Link
             key={user.id}
             to="/:username"

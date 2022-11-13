@@ -11,6 +11,8 @@
   "dependencies": {
     "@fontsource/titillium-web": "^4.5.9",
     "@tanstack/react-router": "^0.0.1-beta.11",
+    "@tanstack/react-table": "^8.5.24",
+    "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

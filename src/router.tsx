@@ -4,6 +4,7 @@ import {
 } from '@tanstack/react-router'
 
 import { Layout } from './components/Layout'
+import { DetailUser, fetchUser, fetchUserRepos } from './pages/DetailUser'
 
 import { fetchUsers, ListUsers } from './pages/ListUsers'
 
@@ -23,7 +24,13 @@ const routeConfig = createRouteConfig().createChildren(createRoute => [
     }),
     createRoute({
       path: '/:username',
-      element: <h1>User details</h1>
+      element: <DetailUser />,
+      loader: async ({ params: { username } }) => {
+        return {
+          user: await fetchUser(username),
+          repos: await fetchUserRepos(username)
+        }
+      }
     }),
   ])
 ])
