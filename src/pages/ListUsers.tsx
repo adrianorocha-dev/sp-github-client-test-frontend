@@ -11,20 +11,24 @@ const usersPerPage = 20
 export function ListUsers() {
   const { Link } = router.useMatch('/root/')
 
-  const [startUserId, setStartUserId] = useState(0)
+  const [pageStartIds, setPageStartIds] = useState([0])
 
+  const currentPageStartId = pageStartIds[pageStartIds.length - 1]
+  
   const { data: users, error } = useQuery({
-    queryKey: ['users', startUserId],
-    queryFn: () => fetchUsers(startUserId),
+    queryKey: ['users', currentPageStartId],
+    queryFn: () => fetchUsers(currentPageStartId),
     keepPreviousData: true
   })
 
+  const lastUserId = users?.[users.length - 1]?.id ?? 0;
+
   function handlePreviousPage() {
-    setStartUserId(current => Math.max(0, current - usersPerPage))
+    setPageStartIds(current => current.slice(0, -1))
   }
 
   function handleNextPage() {
-    setStartUserId(current => current + usersPerPage)
+    setPageStartIds(current => [...current, lastUserId])
   }
 
   return (
@@ -42,7 +46,7 @@ export function ListUsers() {
             Prev
           </button>
 
-          <span className="mx-2">Page {startUserId / usersPerPage + 1}</span>
+          <span className="mx-2">Page {pageStartIds.length}</span>
 
           <button
             className="px-2 py-1 bg-zinc-200 text-slate-800 rounded hover:bg-zinc-300 transition-colors"
