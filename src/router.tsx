@@ -6,7 +6,7 @@ import {
 import { Layout } from './components/Layout'
 import { DetailUser, fetchUser, fetchUserRepos } from './pages/DetailUser'
 
-import { fetchUsers, ListUsers } from './pages/ListUsers'
+import { ListUsers } from './pages/ListUsers'
 
 const routeConfig = createRouteConfig().createChildren(createRoute => [
   createRoute({
@@ -15,12 +15,7 @@ const routeConfig = createRouteConfig().createChildren(createRoute => [
   }).createChildren(createRoute => [
     createRoute({
       path: '/',
-      element: <ListUsers />,
-      loader: async () => {
-        return {
-          users: await fetchUsers()
-        }
-      }
+      element: <ListUsers />
     }),
     createRoute({
       path: '/:username',
